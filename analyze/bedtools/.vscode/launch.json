@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'bedtools'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=bedtools",
+                    "--package=bedtools"
+                ],
+                "filter": {
+                    "name": "bedtools",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'bedtools'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=bedtools",
+                    "--package=bedtools"
+                ],
+                "filter": {
+                    "name": "bedtools",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
