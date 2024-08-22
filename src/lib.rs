@@ -572,6 +572,7 @@ pub fn bam_merge(
 
     // 处理数据文件
     build_chromosome_data(&output_file1, Arc::clone(&chromosome_data))?;
+    fs::remove_file(&output_file1)?;
 
     while !bam_files.is_empty() {
         let first_bam = bam_files.remove(0); 
@@ -586,6 +587,7 @@ pub fn bam_merge(
         }
         println!("bedtools done");
         build_chromosome_data(&output_file1, Arc::clone(&chromosome_data))?;
+        fs::remove_file(&output_file1)?;
     }
 
     let chromosome_data_ref = chromosome_data.read().unwrap();
